@@ -1,0 +1,12 @@
+.popup__title_register-tooltip {
+  max-width: 358px;
+  margin: 32px auto 0;
+}
+
+@media screen and (max-width: 425px) {
+  .popup__title_register-tooltip {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 40px auto 0;
+  }
+}

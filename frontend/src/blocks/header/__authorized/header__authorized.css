@@ -1,0 +1,10 @@
+.header__authorized {
+  display: flex;
+  height: 68px;
+}
+
+@media screen and (max-width: 580px) {
+  .header__authorized {
+    flex-direction: column;
+  }
+}

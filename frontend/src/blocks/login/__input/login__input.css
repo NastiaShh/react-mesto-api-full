@@ -1,0 +1,16 @@
+.login__input {
+  height: 25px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #CCCCCC;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 30px;
+  padding: 0;
+  color: white;
+}
+
+.login__input:focus {
+  outline: none;
+}

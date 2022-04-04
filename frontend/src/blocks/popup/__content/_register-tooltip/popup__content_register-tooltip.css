@@ -1,0 +1,20 @@
+.popup__content_register-tooltip {
+  width: 430px - (36px+36px);
+  background-color: white;
+  border-radius: 10px;
+  padding: 60px 36px 60px 36px;
+  position: relative;
+  margin: 0 19px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+  
+@media screen and (max-width: 425px) {
+  .popup__content_register-tooltip {
+    width: 280px;
+    padding: 50px 18px 50px 18px;
+  }
+}
