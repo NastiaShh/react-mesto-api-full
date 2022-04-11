@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const auth = require('./middlewares/auth');
 const { login, createUser } = require('./controllers/users');
 const { validateRegister, validateLogin } = require('./middlewares/validation');
@@ -14,6 +15,17 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000 } = process.env;
 const app = express();
 require('dotenv').config();
+
+app.use(cors({
+  origin: ['http://mesto.nsh.nomoredomains.work',
+    'https://mesto.nsh.nomoredomains.work',
+    'http://api.mesto.nsh.nomoredomains.work',
+    'https://api.mesto.nsh.nomoredomains.work',
+    'http://localhost:3000',
+    'https://localhost:3000'],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  credentials: true,
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
