@@ -95,8 +95,10 @@ class Api {
 }
 
 const api = new Api({
-  address: 'https://nomoreparties.co/v1/cohort-32',
-  token: '6e39987b-3720-4720-b442-4085767cdc72'
+  address: 'https://api.mesto.nsh.nomoredomains.work',
+  headers: {
+    'Content-Type': 'application/json'
+  }
 })
 
 export default api
