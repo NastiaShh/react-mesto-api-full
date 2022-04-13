@@ -155,12 +155,10 @@ function App() {
 
   function handleLogin(password, email) {
     auth.authorize(password, email)
-      .then(data => {
-        if (data.token) {
+      .then(() => {
           setLoggedIn(true)
           setUserEmail(email)
           history.push('/')
-        }
       })
       .catch((err) => {
         setIsSuccess(false)
