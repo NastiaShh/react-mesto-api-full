@@ -49,7 +49,7 @@ function App() {
   useEffect(() => {
     api.getInitialCards()
       .then(cardsData => {
-        setCards(cardsData);
+        setCards(cardsData.data);
       })
       .catch((err) => {
         console.log(err)
