@@ -173,23 +173,23 @@ function App() {
     history.push('/sign-in')
   }
 
-  function handleTokenCheck() {
-    if (localStorage.getItem('jwt')) {
-      const token = localStorage.getItem('jwt')
-      auth.checkToken(token)
-        .then(res => {
-          if (res) {
-            setLoggedIn(true)
-            setUserEmail(res.data.email)
-            history.push('/')
-          }
-        })
-    }
-  }
+  // function handleTokenCheck() {
+  //   if (localStorage.getItem('jwt')) {
+  //     const token = localStorage.getItem('jwt')
+  //     auth.checkToken(token)
+  //       .then(res => {
+  //         if (res) {
+  //           setLoggedIn(true)
+  //           setUserEmail(res.data.email)
+  //           history.push('/')
+  //         }
+  //       })
+  //   }
+  // }
 
-  useEffect(() => {
-    handleTokenCheck();
-  }, [])
+  // useEffect(() => {
+  //   handleTokenCheck();
+  // }, [])
 
   return (
     <>
