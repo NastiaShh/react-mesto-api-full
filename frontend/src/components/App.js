@@ -36,18 +36,40 @@ function App() {
   const [userEmail, setUserEmail] = useState('')
   const history = useHistory()
   
+  // useEffect(() => {
+  //   api.getUserInfo()
+  //     .then(userData => {
+  //       setLoggedIn(true)
+  //       setCurrentUser(userData)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }, [])
+  
+  // useEffect(() => {
+  //   api.getInitialCards()
+  //     .then(cardsData => {
+  //       setCards(cardsData.data)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }, [])
+
   useEffect(() => {
+    if (!loggedIn) {
+      return;
+    }
+
     api.getUserInfo()
       .then(userData => {
-        setLoggedIn(true)
         setCurrentUser(userData)
       })
       .catch((err) => {
         console.log(err)
       })
-  }, [])
-  
-  useEffect(() => {
+
     api.getInitialCards()
       .then(cardsData => {
         setCards(cardsData.data)
@@ -55,7 +77,7 @@ function App() {
       .catch((err) => {
         console.log(err)
       })
-  }, [])
+  }, [loggedIn])
 
   function handleCardLike(card) {
     console.log(card)
