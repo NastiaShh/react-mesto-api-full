@@ -158,7 +158,6 @@ function App() {
       .then(data => {
         if (data.token) {
           setLoggedIn(true)
-          localStorage.setItem('jwt', data.token)
           setUserEmail(email)
           history.push('/')
         }
@@ -171,7 +170,6 @@ function App() {
   }
 
   function handleSignOut(){
-    localStorage.removeItem('jwt')
     setLoggedIn(false)
     setUserEmail('')
     history.push('/sign-in')

@@ -13,14 +13,16 @@ class Api {
 
   getInitialCards() {
     return fetch(`${this._address}/cards`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
     .then(this._checkResponseStatus);
   }
 
   getUserInfo() {
     return fetch(`${this._address}/users/me`, {
-      headers: this._headers
+      credentials: 'include',
+      headers: this._headers,
     })
     .then(this._checkResponseStatus)
   }
@@ -28,6 +30,7 @@ class Api {
   setUserInfo({name, about}) {
     return fetch(`${this._address}/users/me`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       
       body: JSON.stringify({
@@ -40,6 +43,7 @@ class Api {
   setUserAvatar(avatar) {
     return fetch(`${this._address}/users/me/avatar`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       
       body: JSON.stringify({avatar})
@@ -50,6 +54,7 @@ class Api {
   addCard({name, link}) {
     return fetch(`${this._address}/cards`, {
       method: 'POST',
+      credentials: 'include',
       headers: this._headers,
       
       body: JSON.stringify({
@@ -62,6 +67,7 @@ class Api {
   changeLikeCardStatus(cardId, isLiked) {
     return fetch(`${this._address}/cards/${cardId}/likes`, {
       method: `${isLiked ? 'DELETE' : 'PUT'}`,
+      credentials: 'include',
       headers: this._headers,
     })
     .then(this._checkResponseStatus)
@@ -70,6 +76,7 @@ class Api {
   deleteCard(cardId) {
     return fetch(`${this._address}/cards/${cardId}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: this._headers, 
     })
     .then(this._checkResponseStatus);
@@ -79,7 +86,8 @@ class Api {
 const api = new Api({
   address: 'https://api.mesto.nsh.nomoredomains.work',
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
   }
 })
 
