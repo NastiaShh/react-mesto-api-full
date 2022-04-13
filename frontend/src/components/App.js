@@ -39,7 +39,8 @@ function App() {
   useEffect(() => {
     api.getUserInfo()
       .then(userData => {
-        setCurrentUser(userData);
+        setLoggedIn(true)
+        setCurrentUser(userData)
       })
       .catch((err) => {
         console.log(err)
@@ -49,7 +50,7 @@ function App() {
   useEffect(() => {
     api.getInitialCards()
       .then(cardsData => {
-        setCards(cardsData.data);
+        setCards(cardsData.data)
       })
       .catch((err) => {
         console.log(err)
