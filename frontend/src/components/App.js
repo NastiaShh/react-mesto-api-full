@@ -36,52 +36,36 @@ function App() {
   const [userEmail, setUserEmail] = useState('')
   const history = useHistory()
   
-  // useEffect(() => {
-  //   api.getUserInfo()
-  //     .then(userData => {
-  //       setLoggedIn(true)
-  //       setCurrentUser(userData)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }, [])
-  
-  // useEffect(() => {
-  //   api.getInitialCards()
-  //     .then(cardsData => {
-  //       setCards(cardsData.data)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }, [])
-
-  useEffect(() => {
-    if (!loggedIn) {
-      return;
-    }
-
+  function getUserInfo() {
     api.getUserInfo()
       .then(userData => {
+        setLoggedIn(true)
+        history.push('/')
         setCurrentUser(userData)
       })
       .catch((err) => {
         console.log(err)
       })
-
+  }
+  
+  function getInitialCards() {
     api.getInitialCards()
       .then(cardsData => {
-        setCards(cardsData.data)
+        setCards(cardsData)
       })
       .catch((err) => {
         console.log(err)
       })
-  }, [loggedIn])
+  }
+
+  useEffect(() => {
+    getUserInfo()
+    getInitialCards()
+  }, [])
 
   function handleCardLike(card) {
     console.log(card)
-    const isLiked = card.likes.some(like => like._id === currentUser._id)
+    const isLiked = card.likes.some(i => i === currentUser._id)
 
     api.changeLikeCardStatus(card._id, isLiked)
       .then((newCard) => {

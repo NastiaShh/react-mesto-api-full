@@ -1,4 +1,6 @@
 export const BASE_URL = process.env.REACT_APP_BASE_URL || 'https://localhost:3000'
+// для локальной отладки
+// export const BASE_URL = 'http://localhost:3000' 
 
 const checkResponseStatus = (res) => {
   if (res.ok) {

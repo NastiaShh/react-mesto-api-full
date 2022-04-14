@@ -1,3 +1,5 @@
+// для локальной отладки
+// export const BASE_URL = 'http://localhost:3000'
 class Api {
   constructor({address, headers}) {
     this._address = address;
@@ -85,9 +87,11 @@ class Api {
 
 const api = new Api({
   address: 'https://api.mesto.nsh.nomoredomains.work',
+  // для локальной отладки
+  // address: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    'Accept': 'application/json'
   }
 })
 
