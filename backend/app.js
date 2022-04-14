@@ -22,7 +22,9 @@ app.use(cors({
     'http://api.mesto.nsh.nomoredomains.work',
     'https://api.mesto.nsh.nomoredomains.work',
     'http://localhost:3000',
-    'https://localhost:3000'],
+    'https://localhost:3000',
+    'http://localhost:3001',
+    'https://localhost:3001'],
   credentials: true,
 }));
 

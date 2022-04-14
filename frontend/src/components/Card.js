@@ -5,13 +5,13 @@ function Card(props) {
   const currentUser = React.useContext(CurrentUserContext)
 
   // переменные для кнопки удаления карточки
-  const isOwn = props.owner._id === currentUser._id
+  const isOwn = props.owner === currentUser._id
   const cardDeleteButtonClassName = (
     `place__delete ${isOwn ? 'place__delete_active' : ''}`
   )
 
   // переменные для кнопки лайка карточки
-  const isLiked = props.card.likes.some(like => like._id === currentUser._id)
+  const isLiked = props.card.likes.some(i => i === currentUser._id)
   const cardLikeButtonClassName = (
     `place__like ${isLiked ? 'place__like_active' : ''}`
   )

@@ -10,7 +10,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.send({ data: users }))
+    .then((users) => res.send(users))
     .catch(next);
 };
 
@@ -34,12 +34,10 @@ module.exports.createUser = (req, res, next) => {
       password: hash,
     }))
     .then((user) => res.status(200).send({
-      data: {
-        name: user.name,
-        about: user.about,
-        avatar: user.avatar,
-        email: user.email,
-      },
+      name: user.name,
+      about: user.about,
+      avatar: user.avatar,
+      email: user.email,
     }))
     .catch((err) => {
       if (err.name === '"ValidationError') {
@@ -55,7 +53,7 @@ module.exports.getUserById = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError();
     })
-    .then((data) => res.send({ data }))
+    .then((data) => res.send(data))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new ValidationError());
@@ -132,7 +130,7 @@ module.exports.getMyProfile = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError();
     })
-    .then((data) => res.send({ data }))
+    .then((data) => res.send(data))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new ValidationError());
