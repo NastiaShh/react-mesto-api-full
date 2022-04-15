@@ -42,6 +42,7 @@ function App() {
         setLoggedIn(true)
         history.push('/')
         setCurrentUser(userData)
+        setUserEmail(userData.email)
       })
       .catch((err) => {
         console.log(err)
@@ -61,6 +62,7 @@ function App() {
   useEffect(() => {
     getUserInfo()
     getInitialCards()
+    setUserEmail()
   }, [])
 
   function handleCardLike(card) {
@@ -166,6 +168,8 @@ function App() {
           setLoggedIn(true)
           setUserEmail(email)
           history.push('/')
+          getUserInfo()
+          getInitialCards()
       })
       .catch((err) => {
         setIsSuccess(false)
