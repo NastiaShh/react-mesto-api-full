@@ -1,6 +1,4 @@
-export const BASE_URL = process.env.REACT_APP_BASE_URL || 'https://localhost:3000'
-// для локальной отладки
-// export const BASE_URL = 'http://localhost:3000' 
+export const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001'
 
 const checkResponseStatus = (res) => {
   if (res.ok) {
@@ -34,15 +32,3 @@ export const authorize = (password, email) => {
   })
   .then(checkResponseStatus)
 }
-
-// export const checkToken = (token) => {
-//   return fetch(`${BASE_URL}/users/me`, {
-//     method: 'GET',
-//     credentials: 'include',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json',
-//     }
-//   })
-//   .then(checkResponseStatus)
-// }
